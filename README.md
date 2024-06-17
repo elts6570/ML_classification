@@ -20,13 +20,13 @@ Welcome to the Machine Learning Tutorials in Astronomy repository! This reposito
 
 - Each tutorial follows the following structure:
    1. How the algorithms works
-   2. What are its tunable parameters
-   3. What diagnostics can we use to assess the algorithm's performance on a dataset
-   4. How can we improve its performance
+   2. What its tunable parameters are
+   3. What diagnostics we can use to assess the algorithm's performance on a dataset
+   4. How we can improve its performance
 
 - The code is written in Python and utilizes scikit-learn.
 
-- Clone the repository to your local machine.
+- Clone the repository to your local machine and request access to the data by the author in order to run the scripts.
 
 ## Dependencies:
 
