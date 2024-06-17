@@ -38,3 +38,9 @@ Ensure you have the necessary dependencies installed:
 - sklearn
 - h5py
 - seaborn
+
+
+## Acknowledgements and feedback:
+
+If you found these demonstrations useful, please consider contacting the author at e.tsaprazi@imperial.ac.uk (Eleni Tsaprazi) to discuss a way
+to acknowledge the contribution. Feedback is welcome!
