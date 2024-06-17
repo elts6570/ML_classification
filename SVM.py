@@ -8,15 +8,15 @@ from sklearn.model_selection import train_test_split
 
 def load_data():
 	"""
-    This function loads the galaxy color and morphology data.
+	This function loads the galaxy color and morphology data.
 
-    Returns
-    -------
-    features : array_like
-    	galaxy colours in four bands
-    morphology : array_like
-    	galaxy morphology (merger (0) / elliptical (1) / spiral (2))
-    """
+	Returns
+	-------
+	features : array_like
+		galaxy colours in four bands
+	morphology : array_like
+		galaxy morphology (merger (0) / elliptical (1) / spiral (2))
+	"""
 	data = np.load("data/galaxy_catalogue.npy")
 
 	features = np.empty(shape=(len(data), 4))
@@ -41,19 +41,19 @@ def load_data():
 
 def split_data(features, morphology):
 	""" 
-    This function splits the dataset into training data and test data.
+	This function splits the dataset into training data and test data.
 
-    Returns
-    -------
-    xtrain : array_like
-        the independent variables used for training
-    xtest : array_like
-        the test variables used for testing
-    ytrain : array_like
-        the dependent variables used for training
-    ytest : array_like
-        the dependent variables used for testing
-    """
+	Returns
+	-------
+	xtrain : array_like
+	    the independent variables used for training
+	xtest : array_like
+	    the test variables used for testing
+	ytrain : array_like
+	    the dependent variables used for training
+	ytest : array_like
+	    the dependent variables used for testing
+	"""
 	xtrain, xtest, ytrain, ytest = train_test_split(features, morphology, test_size=0.5)
 	return xtrain, xtest, ytrain, ytest
 
@@ -63,28 +63,29 @@ def construct_svm(decision_function_shape, kernel):
 	This function constructs the support vector machine.
 
 	Parameters
-    ----------
-    decision_function_shape : string
-    	shape of the decision function, choose among 'ovo', 'ovr'
-    kernel : string
-    	shape of kernel, choose among ‘linear’, ‘poly’, ‘rbf’, ‘sigmoid’, ‘precomputed’
+	----------
+	decision_function_shape : string
+		shape of the decision function, choose among 'ovo', 'ovr'
+	kernel : string
+		shape of kernel, choose among ‘linear’, ‘poly’, ‘rbf’, ‘sigmoid’, ‘precomputed’
 
-    Return
-    ------
-    SVM : sklearn.svm._classes.SVC
-    	the support vector machine
+	Return
+	------
+	SVM : sklearn.svm._classes.SVC
+		the support vector machine
 	"""
 	SVM = svm.SVC(decision_function_shape = decision_function_shape, kernel = kernel)
 	return SVM
+
 
 def fit_model(SVM, xtrain, ytrain):
 	"""
 	This function fits the model to the train data.
 
-    Return
-    ------
-    model : sklearn.svm._classes.SVC
-    	the model that is fitted to the data
+	Return
+	------
+	model : sklearn.svm._classes.SVC
+		the model that is fitted to the data
 	"""
 	model = SVM.fit(xtrain, ytrain)
 	return model
@@ -93,36 +94,36 @@ def fit_model(SVM, xtrain, ytrain):
 def predict(model, xtest):
 	"""
 	This function compares the dependent variables predicted by the model to their 
-    true values and prints the accuracy score.
+	true values and prints the accuracy score.
 
-    Returns
-    -------
-    y_pred_test : array_like
-        the dependent variable predicted by the model
+	Returns
+	-------
+	y_pred_test : array_like
+	    the dependent variable predicted by the model
 	"""
 	y_pred_test = model.predict(xtest)
 	return y_pred_test
 
 
 def accuracy_diagnostic(model, xtest, ytest):
-    """
-    This function compares the dependent variables predicted by the model to their 
-    true values and prints the accuracy score.
+	"""
+	This function compares the dependent variables predicted by the model to their 
+	true values and prints the accuracy score.
 
-    Returns
-    -------
-    y_pred_test : array_like
-        the dependent variable predicted by the model
-    """
-    y_pred_test = model.predict(xtest)
-    print("Accuracy score:", accuracy_score(ytest, y_pred_test))
-    return None
+	Returns
+	-------
+	y_pred_test : array_like
+	    the dependent variable predicted by the model
+	"""
+	y_pred_test = model.predict(xtest)
+	print("Accuracy score:", accuracy_score(ytest, y_pred_test))
+	return None
 
 
 def confusion_diagnostic(ytest, y_pred_test):
 	"""
-    This function builds the confusion matrix and plots it.
-    """
+	This function builds the confusion matrix and plots it.
+	"""
 	matrix = confusion_matrix(ytest, y_pred_test)
 	matrix = matrix.astype('float') / matrix.sum(axis=1)[:, np.newaxis]
 
@@ -159,4 +160,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
