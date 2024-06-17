@@ -146,7 +146,6 @@ def main():
 	plt.xlabel("number of nearest neighbours")
 	plt.ylabel("rms")
 	plt.show()
-	return None
 
 
 if __name__ == "__main__":
