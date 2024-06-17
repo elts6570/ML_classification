@@ -8,8 +8,8 @@ Welcome to the Machine Learning Tutorials in Astronomy repository! This reposito
    - Tutorial Link: RFC.py
    - Description: This tutorial introduces the Random Forest Classifier, a powerful ensemble learning algorithm, and demonstrates its application in predicting galaxy types (central, satellite, orphan) from the galaxy stellar mass, star-formation rate, and local density.
 
-2. **K-Nearest Neighbors (KNN):**
-   - Tutorial Link: KNN.py
+2. **K-Nearest Neighbors (kNN):**
+   - Tutorial Link: kNN.py
    - Description: Learn about K-Nearest Neighbors, a simple yet effective algorithm for classification, and apply it to predict galaxy redshifts from galaxy colours.
 
 3. **Support Vector Machines (SVM):**
