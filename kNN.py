@@ -10,15 +10,15 @@ from sklearn.model_selection import train_test_split
 
 def load_data():
 	"""
-    This function loads the galaxy color and redshift data.
+	This function loads the galaxy color and redshift data.
 
-    Returns
-    -------
-    x : array_like
-    	galaxy u-g, g-r, r-i, i-z colors
-    y : array_like
-    	galaxy redshifts
-    """
+	Returns
+	-------
+	x : array_like
+		galaxy u-g, g-r, r-i, i-z colors
+	y : array_like
+		galaxy redshifts
+	"""
 	f = np.loadtxt("data/SDSS_data.csv", skiprows=1, delimiter=',')
 	f = np.array(f)
 
@@ -39,19 +39,19 @@ def load_data():
 
 def split_data(x, y):
 	""" 
-    This function splits the dataset into training data and test data.
+	This function splits the dataset into training data and test data.
 
-    Returns
-    -------
-    xtrain : array_like
-        the independent variables used for training
-    xtest : array_like
-        the test variables used for testing
-    ytrain : array_like
-        the dependent variables used for training
-    ytest : array_like
-        the dependent variables used for testing
-    """
+	Returns
+	-------
+	xtrain : array_like
+	    the independent variables used for training
+	xtest : array_like
+	    the test variables used for testing
+	ytrain : array_like
+	    the dependent variables used for training
+	ytest : array_like
+	    the dependent variables used for testing
+	"""
 	xtrain, xtest, ytrain, ytest = train_test_split(x, y, test_size=0.5, random_state=12345)
 	return xtrain, xtest, ytrain, ytest
 
@@ -76,13 +76,13 @@ def construct_regressor(n_neighbors):
 
 def fit_model(knn, xtrain, ytrain):
 	""" 
-    This function fits the model to the training data.
+	This function fits the model to the training data.
 
-    Returns
-    -------
-    model : sklearn.neighbors._regression.KNeighborsRegressor
-        the trained model
-    """
+	Returns
+	-------
+	model : sklearn.neighbors._regression.KNeighborsRegressor
+	    the trained model
+	"""
 	model = knn.fit(xtrain, ytrain)
 	return model 
 
@@ -90,12 +90,12 @@ def fit_model(knn, xtrain, ytrain):
 def predict(model, xtest):
 	"""
 	This function compares the dependent variables predicted by the model to their 
-    true values and prints the accuracy score.
+	true values and prints the accuracy score.
 
-    Returns
-    -------
-    y_pred_test : array_like
-        the dependent variable predicted by the model
+	Returns
+	-------
+	y_pred_test : array_like
+	    the dependent variable predicted by the model
 	"""
 	y_pred_test = model.predict(xtest)
 	return y_pred_test
@@ -114,20 +114,19 @@ def rms_error(ytest, y_pred_test):
 	return rms
 
 
-
 def loss(n_neighbors):
-    """
+	"""
 	This function takes as input the number of nearest neighbors
 	and returns the root mean square error.
-    """
-    x, y = load_data()
-    xtrain, xtest, ytrain, ytest = split_data(x, y)
+	"""
+	x, y = load_data()
+	xtrain, xtest, ytrain, ytest = split_data(x, y)
 
-    knn = construct_regressor(n_neighbors=n_neighbors)
-    model = fit_model(knn, xtrain, ytrain)
-    y_pred_test = predict(model, xtest)
-    rms = rms_error(ytest, y_pred_test)
-    return rms
+	knn = construct_regressor(n_neighbors=n_neighbors)
+	model = fit_model(knn, xtrain, ytrain)
+	y_pred_test = predict(model, xtest)
+	rms = rms_error(ytest, y_pred_test)
+	return rms
 
 
 def main():
@@ -149,18 +148,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	main()
