@@ -16,7 +16,15 @@ Welcome to the Machine Learning Tutorials in Astronomy repository! This reposito
    - Tutorial Link: SVM.py
    - Description: Explore Support Vector Machines, a versatile algorithm for classification, and understand how to use SVM to predict galaxy morphologies from galaxy colours.
 
-I am in the process of adding more fundamental tutorials to present the behaviour of classifiers. Those are in Jupyter Notebook format and are taken from the book "Introduction to Machine Learning with Python - A guide for data scientists" by Andreas C. Müller & Sarah Guido, 2017.  
+I am in the process of adding more fundamental tutorials to present the behaviour of classifiers. **Important:** The Jupyter notebooks in this repository are based on the book **"Introduction to Machine Learning with Python"** by Andreas C. Müller & Sarah Guido (© 2017 O'Reilly Media, Inc.).
+
+These notebooks are created as a supplement for educational use. They are not an official part of the book and are not endorsed by the authors or O'Reilly.
+
+- **Original Authors:** Andreas C. Müller & Sarah Guido
+- **Original Publisher:** O'Reilly Media, Inc.
+- **Source:** Müller, A. C., & Guido, S. (2017). *Introduction to Machine Learning with Python: A Guide for Data Scientists*. O'Reilly Media.
+
+I do not hold the copyright to the original content. This repository is meant to serve as a learning aid and a companion for those studying the book. For the definitive and complete content, please support the authors by purchasing the official publication. 
 
 ## Usage:
 
