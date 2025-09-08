@@ -40,6 +40,7 @@ Ensure you have the necessary dependencies installed:
 - sklearn
 - h5py
 - seaborn
+- mglearn
 
 
 ## Acknowledgements and feedback:
